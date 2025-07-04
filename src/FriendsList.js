@@ -1,5 +1,5 @@
 import Friend from './Friend';
-import Button from './Button';
+
 export default function FriendsList({ friends, onSelection, selectedFriend }) {
     //     const friends = initialFriends;
     return (
