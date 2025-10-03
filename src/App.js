@@ -41,27 +41,30 @@ export default function App() {
 
     return (
         <div className='app'>
-            <div className='sidebar'>
-                <FriendsList
-                    friends={friends}
-                    selectedFriend={selectedFriend}
-                    onSelection={handleSelection}
-                />
+            <h1>Eat-n-Split</h1>
+            <div className='app-inner'>
+                <div className='sidebar'>
+                    <FriendsList
+                        friends={friends}
+                        selectedFriend={selectedFriend}
+                        onSelection={handleSelection}
+                    />
 
-                {showAddFriend && (
-                    <FormAddFriend onAddFriend={handleAddFriend} />
+                    {showAddFriend && (
+                        <FormAddFriend onAddFriend={handleAddFriend} />
+                    )}
+
+                    <Button onClick={handleShowAddFriend}>
+                        {!showAddFriend ? 'Add friend' : 'Close'}
+                    </Button>
+                </div>
+                {selectedFriend && (
+                    <FormSplitBill
+                        selectedFriend={selectedFriend}
+                        onSplitBill={handleSpitBill}
+                    />
                 )}
-
-                <Button onClick={handleShowAddFriend}>
-                    {!showAddFriend ? 'Add friend' : 'Close'}
-                </Button>
             </div>
-            {selectedFriend && (
-                <FormSplitBill
-                    selectedFriend={selectedFriend}
-                    onSplitBill={handleSpitBill}
-                />
-            )}
         </div>
     );
 }
